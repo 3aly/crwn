@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 import Hats from "./pages/hats";
 import Nav from "./pages/navbar/nav.components";
-import SignIn from "./pages/sign-in/signin.component";
+import SignUp from "./compnents/sign-up/sign-up.component";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
           <Route index element={<HomePage />} />
 
           <Route path="shop/hats" element={<Hats />} />
-          <Route path="sign-in" element={<SignIn />} />
+          <Route path="sign-up" element={<SignUp />} />
         </Route>
       </Routes>
     </div>

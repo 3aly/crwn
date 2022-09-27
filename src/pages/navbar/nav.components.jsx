@@ -16,8 +16,8 @@ export default function Nav() {
           <Link className="nav-link" to="/shop">
             Shop
           </Link>
-          <Link className="nav-link" to="/sign-in">
-            Sign in
+          <Link className="nav-link" to="/sign-up">
+            Sign Up
           </Link>
         </div>
       </div>
