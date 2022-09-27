@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import Hats from "./pages/hats";
 import Nav from "./pages/navbar/nav.components";
+import SignIn from "./pages/sign-in/signin.component";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route index element={<HomePage />} />
 
           <Route path="shop/hats" element={<Hats />} />
+          <Route path="sign-in" element={<SignIn />} />
         </Route>
       </Routes>
     </div>
