@@ -1,18 +1,26 @@
 import "./App.css";
 import HomePage from "./pages/homepage/homepage.component";
-import { BrowserRouter, Switch, Route, Link, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Link,
+  Routes,
+  Outlet,
+} from "react-router-dom";
 import Hats from "./pages/hats";
+import Nav from "./pages/navbar/nav.components";
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/shop/hats" element={<Hats />} />
-        </Routes>
-      </BrowserRouter>
-      ,
+      <Routes>
+        <Route path="/" element={<Nav />}>
+          <Route index element={<HomePage />} />
+
+          <Route path="shop/hats" element={<Hats />} />
+        </Route>
+      </Routes>
     </div>
   );
 }
