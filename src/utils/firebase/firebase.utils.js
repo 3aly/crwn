@@ -5,8 +5,11 @@ import {
   signInWithRedirect,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
+
 import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+
 const firebaseConfig = {
   apiKey: "AIzaSyD8BKwd5covq4niB-1rn3LF_r65RqhalGU",
   authDomain: "crwn-d54ac.firebaseapp.com",
@@ -16,7 +19,7 @@ const firebaseConfig = {
   appId: "1:125719505240:web:61757b2f94c3387093dd2d",
 };
 
-const app = initializeApp(firebaseConfig);
+const firebaseApp = initializeApp(firebaseConfig);
 const provider = new GoogleAuthProvider();
 
 provider.setCustomParameters({
@@ -39,29 +42,41 @@ export const createAuthUserWithEmailAndPassword = async (email, password) => {
   return await createUserWithEmailAndPassword(auth, email, password);
 };
 
+export const signinAuthUserWithEmailAndPassword = async (email, password) => {
+  if (!email || !password) {
+    return;
+  }
+
+  return await signInWithEmailAndPassword(auth, email, password);
+};
+
 export const db = getFirestore();
 
-export const createUserDocumnetFromAuth = async (userAuth) => {
+export const createUserDocumnetFromAuth = async (
+  userAuth,
+  additionalInfo = {}
+) => {
   const userDocRef = doc(db, "users", userAuth.uid);
-  console.log(userDocRef);
+  console.log(userDocRef, "userDocRef");
   const userSnapShopt = await getDoc(userDocRef);
-  console.log(userSnapShopt);
-  console.log(userSnapShopt.exists());
+  console.log(userSnapShopt, "userSnapShopt");
 
   if (!userSnapShopt.exists()) {
-    const { displayname, email } = userAuth;
+    const { displayName, email } = userAuth;
     const createdAt = new Date();
-
+    console.log(userAuth, "userAuth");
     try {
       await setDoc(userDocRef, {
-        displayname,
+        displayName,
         email,
         createdAt,
+        ...additionalInfo,
       });
     } catch (error) {
       console.log("error");
     }
   }
+  console.log(userDocRef, "secind userSnapShopt");
 
   return userDocRef;
 };
