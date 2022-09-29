@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 import Hats from "./pages/hats";
 import Nav from "./pages/navbar/nav.components";
-import Authpage from "./pages/sing-in-up/sign-in-up";
+import Authpage from "./pages/authpage/authpage.jsx";
 
 function App() {
   return (
