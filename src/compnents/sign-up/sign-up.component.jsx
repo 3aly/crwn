@@ -38,7 +38,6 @@ export default function SignUp() {
 
       await createUserDocumnetFromAuth(user, { displayName });
       resetFormFields();
-      setCurrentUser(user);
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         alert("Cannot create user, email already in use");
