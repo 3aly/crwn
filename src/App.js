@@ -11,6 +11,7 @@ import {
 import Hats from "./pages/hats";
 import Nav from "./pages/navbar/nav.components";
 import Authpage from "./pages/authpage/authpage.jsx";
+import Shop from "./pages/shop/shop.component";
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Nav />}>
           <Route index element={<HomePage />} />
+
+          <Route path="shop" element={<Shop />} />
 
           <Route path="shop/hats" element={<Hats />} />
           <Route path="auth" element={<Authpage />} />

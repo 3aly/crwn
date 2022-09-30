@@ -5,8 +5,13 @@ import "./navbar.styles.scss";
 import { ReactComponent as Crwnlogo } from "../../assets/crown.svg";
 import { UserContext } from "../../context/user.context";
 import { signOutUser } from "../../utils/firebase/firebase.utils.js";
+import Cart from "../../compnents/cart-icon/cart-icon.component";
+import CartDropdown from "../../compnents/cart-dropdown/cart-dropdown.component";
+import { CartContext } from "../../context/cart.context";
+
 export default function Nav() {
   const { currentUser } = useContext(UserContext);
+  const { isCartopen, setIsCartopen } = useContext(CartContext);
 
   return (
     <Fragment>
@@ -29,7 +34,10 @@ export default function Nav() {
               Sign out{" "}
             </span>
           )}
+          <Cart />
         </div>
+
+        {isCartopen && <CartDropdown />}
       </div>
       <Outlet />
     </Fragment>
