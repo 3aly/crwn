@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useState } from "react";
-import { createAuthUserWithEmailAndPassword } from "../../utils/firebase/firebase.utils";
+import { signInAuthUserWithEmailAndPassword } from "../../utils/firebase/firebase.utils";
 import { createUserDocumnetFromAuth } from "../../utils/firebase/firebase.utils";
 import { FormInput } from "../form-input/form-input.component";
 import { Button } from "../button/button.component";
@@ -30,7 +30,7 @@ const SignIn = () => {
     event.preventDefault();
 
     try {
-      const { user } = await signinAuthUserWithEmailAndPassword(
+      const { user } = await signInAuthUserWithEmailAndPassword(
         email,
         password
       );

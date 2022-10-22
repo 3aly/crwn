@@ -11,7 +11,7 @@ import { CartContext } from "../../context/cart.context";
 
 export default function Nav() {
   const { currentUser } = useContext(UserContext);
-  const { isCartopen, setIsCartopen } = useContext(CartContext);
+  const { isCartOpen } = useContext(CartContext);
 
   return (
     <Fragment>
@@ -37,7 +37,7 @@ export default function Nav() {
           <Cart />
         </div>
 
-        {isCartopen && <CartDropdown />}
+        {isCartOpen && <CartDropdown />}
       </div>
       <Outlet />
     </Fragment>
