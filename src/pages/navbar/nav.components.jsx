@@ -3,15 +3,16 @@ import { Outlet, Link } from "react-router-dom";
 import { Fragment, useContext } from "react";
 import "./navbar.styles.scss";
 import { ReactComponent as Crwnlogo } from "../../assets/crown.svg";
-import { UserContext } from "../../context/user.context";
 import { signOutUser } from "../../utils/firebase/firebase.utils.js";
 import Cart from "../../compnents/cart-icon/cart-icon.component";
 import CartDropdown from "../../compnents/cart-dropdown/cart-dropdown.component";
 import { CartContext } from "../../context/cart.context";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../store/user/user.selector";
 
 export default function Nav() {
-  const { currentUser } = useContext(UserContext);
   const { isCartOpen } = useContext(CartContext);
+  const currentUser = useSelector(selectCurrentUser);
 
   return (
     <Fragment>

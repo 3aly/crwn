@@ -31,7 +31,7 @@ function App() {
       if (user) {
         createUserDocumentFromAuth(user);
       }
-      setCurrentUser(user);
+      dispatch(setCurrentUser(user));
     });
 
     return unsubscribe;
