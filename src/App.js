@@ -52,10 +52,9 @@ function App() {
         <Route path="/" element={<Nav />}>
           <Route index element={<HomePage />} />
 
-          <Route path="shop" element={<Shop />} />
+          <Route path="shop/*" element={<Shop />} />
           <Route path="checkout" element={<CheckOut />} />
 
-          <Route path="shop/hats" element={<Hats />} />
           <Route path="auth" element={<Authpage />} />
         </Route>
       </Routes>
